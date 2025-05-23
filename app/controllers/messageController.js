@@ -17,6 +17,7 @@ async function getMessageById(req, res) {
 async function getAllMessages(req, res) {
   try {
     const messages = await db.getAllMessages();
+    res.render("index", { messages: messages });
   } catch (err) {
     console.error("Error retrieving messages:", err);
     res.status(500).send("Internal Server Error");
