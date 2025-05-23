@@ -30,4 +30,8 @@ async function getMessageById(messageId) {
   return messages[messageId];
 }
 
-module.exports = { getMessageById };
+async function getAllMessages() {
+  return messages;
+}
+
+module.exports = { getMessageById, getAllMessages };

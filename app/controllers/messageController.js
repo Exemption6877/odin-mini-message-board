@@ -14,4 +14,13 @@ async function getMessageById(req, res) {
   }
 }
 
-module.exports = { getMessageById };
+async function getAllMessages(req, res) {
+  try {
+    const messages = await db.getAllMessages();
+  } catch (err) {
+    console.error("Error retrieving messages:", err);
+    res.status(500).send("Internal Server Error");
+  }
+}
+
+module.exports = { getMessageById, getAllMessages };
