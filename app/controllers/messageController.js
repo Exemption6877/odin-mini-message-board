@@ -25,4 +25,8 @@ async function getAllMessages(req, res) {
   }
 }
 
-module.exports = { getMessageById, getAllMessages };
+async function newMessage(req, res) {
+  res.render("form");
+}
+
+module.exports = { getMessageById, getAllMessages, newMessage };
