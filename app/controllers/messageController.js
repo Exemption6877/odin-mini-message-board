@@ -5,6 +5,7 @@ async function getMessageById(req, res) {
   try {
     const message = await db.getMessageById(messageId);
 
+    res.render("message", { message: message });
     if (!message) {
       res.status(404).send("Message not found");
     }
