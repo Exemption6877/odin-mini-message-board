@@ -29,4 +29,22 @@ async function newMessage(req, res) {
   res.render("form");
 }
 
-module.exports = { getMessageById, getAllMessages, newMessage };
+async function postMessage(req, res) {
+  const date = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDate(),
+    new Date().getHours(),
+    new Date().getMinutes()
+  );
+
+  db.pushMessage({
+    text: req.body.text,
+    user: req.body.author,
+    added: date,
+  });
+
+  res.redirect("/");
+}
+
+module.exports = { getMessageById, getAllMessages, newMessage, postMessage };

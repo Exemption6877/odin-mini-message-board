@@ -34,4 +34,8 @@ async function getAllMessages() {
   return messages;
 }
 
-module.exports = { getMessageById, getAllMessages };
+async function pushMessage(message) {
+  messages.push(message);
+}
+
+module.exports = { getMessageById, getAllMessages, pushMessage };
